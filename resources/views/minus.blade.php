@@ -99,16 +99,16 @@
                 {{ Form::close() }}
                 <div class="grid-x grid-margin-x">
                     <div class="medium-3 cell">
-                        <a class="hollow button large expanded" href="{{ route('add',['ans' => $ans]) }}">+</a>
+                        <a class="hollow button large expanded" href="{{ route('add',['ans' => $route]) }}">+</a>
                     </div>
                     <div class="medium-3 cell">
-                        <a class="hollow button button large expanded" href="{{ route('minus',['ans' => $ans]) }}">-</a>
+                        <a class="hollow button button large expanded" href="{{ route('minus',['ans' => $route]) }}">-</a>
                     </div>
                     <div class="medium-3 cell">
-                        <a class="hollow button button large expanded" href="{{ route('multiply',['ans' => $ans]) }}">x</a>
+                        <a class="hollow button button large expanded" href="{{ route('multiply',['ans' => $route]) }}">x</a>
                     </div>
                     <div class="medium-3 cell">
-                        <a class="hollow button button large expanded" href="{{ route('divide',['ans' => $ans]) }}">/</a>
+                        <a class="hollow button button large expanded" href="{{ route('divide',['ans' => $route]) }}">/</a>
                     </div>
                 </div>
                
