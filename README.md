@@ -1,6 +1,6 @@
 # Calculator
 
-เว็บแอปพลิเคชันเพื่อแสดงตัวอย่างการเขียนกรณีทดสอบ
+เว็บแอปพลิเคชันเพื่อแสดงตัวอย่างการเขียนกรณีทดสอบ โดยใช้ `Laravel 5.4` และ `PHPUnit` เพื่อการทดสอบ
 
 ## ความต้องการเบื้องต้น
 | รายการซอฟต์แวร์ | รุ่นขั้นต่ำ | รุ่นที่แนะนำ | รุ่นที่ใช้พัฒนา |
@@ -10,12 +10,12 @@
 
 ## การติดตั้ง
 
-1. ดาวน์โหลด ```we-inc/calculator``` ด้วยคำสั่ง
+1. ดาวน์โหลด `we-inc/calculator` ด้วยคำสั่ง
     ```
     git clone https://github.com/we-inc/calculator
     ```
 
-1. อัพเดต lib ด้วยคำสั่ง ```composer```
+1. อัพเดต lib ด้วยคำสั่ง `composer`
     ```
     cd calculator && \
     composer update
@@ -31,9 +31,14 @@
     ```
 
 1. สร้างกรณีทดสอบโดยใช้คำสั่ง
-    ```php artisan make:test SomeTestCaseTest```
+    ```
+    php artisan make:test SomeTestCaseTest
+    ```
     เพื่อสร้างกรณีทดสอบสำหรับหน้าที่การใช้งานตัวไป และ
-    ```php artisan make:test SomeControllerTest --unit```
+
+    ```
+    php artisan make:test SomeControllerTest --unit
+    ```
     สำหรับกรณีทดสอบสำหรับคลาสใดคลาสหนึ่ง
 
 ## ข้อมูลเพิ่มเติม
