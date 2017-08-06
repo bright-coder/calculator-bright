@@ -35,3 +35,9 @@
     เพื่อสร้างกรณีทดสอบสำหรับหน้าที่การใช้งานตัวไป และ
     ```php artisan make:test SomeControllerTest --unit```
     สำหรับกรณีทดสอบสำหรับคลาสใดคลาสหนึ่ง
+
+## ข้อมูลเพิ่มเติม
+
+ข้อมูลเพิ่มเติมสำหรับกรณีทดสอบ 
+- [Laravel: Getting Started](https://laravel.com/docs/master/testing)
+- [Illuminate: TestCase API](https://laravel.com/api/master/Illuminate/Foundation/Testing/TestCase.html)
