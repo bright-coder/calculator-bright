@@ -98,7 +98,7 @@ class MinusControllerTest extends TestCase
         
         $response = $this->post('/minus', ['num1' => -1, 'num2' => 2]);
         $response->assertStatus(200)
-                ->assertSee(-1)
+                ->assertSee(-3)
         ;
     }
 }
