@@ -83,12 +83,10 @@
                 </div>
 
                 <div class="links">
-                    <a href="https://laravel.com/docs">Documentation</a>
-                    <a href="https://laracasts.com">Laracasts</a>
-                    <a href="https://laravel-news.com">News</a>
-                    <a href="https://forge.laravel.com">Forge</a>
-                    <a href="https://github.com/laravel/laravel">GitHub</a>
-                    <a href="{{ route('add') }}">Add</a>
+                    <a class="clear button" href="{{ route('add') }}">+ Add (บวก)</a>
+                    <a class="clear button" href="{{ route('minus') }}">- Minus (ลบ)</a>
+                    <a class="clear button" href="{{ route('multiply') }}">x Multiply (คูณ)</a>
+                    <a class="clear button" href="{{ route('divide') }}">/ Divide (หาร)</a>
                 </div>
             </div>
         </div>

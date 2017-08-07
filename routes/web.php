@@ -13,12 +13,12 @@
 
 Route::get('/', function () {
     return view('welcome');
-});
+})->name('home');
 
-Route::match(['get','post'],'add/{ans?}','AddController@calculate')->name('add');
+Route::match(['get','post'],'add','InputController@add')->name('add');
 
-Route::match(['get','post'],'minus/{ans?}','MinusController@calculate')->name('minus');
+Route::match(['get','post'],'minus','InputController@minus')->name('minus');
 
-Route::match(['get','post'],'multiply/{ans?}','MultiplyController@calculate')->name('multiply');
+Route::match(['get','post'],'multiply','InputController@multiply')->name('multiply');
 
-Route::match(['get','post'],'divide/{ans?}','DivideController@calculate')->name('divide');
+Route::match(['get','post'],'divide','InputController@divide')->name('divide');
