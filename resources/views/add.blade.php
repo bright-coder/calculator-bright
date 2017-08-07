@@ -75,14 +75,10 @@
                 <div class="title m-b-md">
                     Add (บวก)
                 </div>
-                {{ Form::open(array('action'=> 'AddController@calculate','method'=> 'POST')) }}
+                {{ Form::open(array('action'=> 'InputController@add','method'=> 'POST')) }}
                 <div class="grid-x grid-margin-x">
                     <div class="medium-4 cell">
-                    @if ($ans !== null)
-                        <input type="number" name="num1" value="{{ $ans }}" readonly>
-                    @else 
                         <input type="number" name="num1" step="any">
-                    @endif
                     </div>
                     <div class="medium-2 cell">
                         <h4>+</h4>
@@ -91,27 +87,20 @@
                         <input type="number" name="num2" step="any">
                     </div>
                     <div class="medium-2 cell">
-                        <button type="submit" class="hollow button button expanded">=</button>
+                        <button type="submit" class="button primary expanded"><img src="/asset/equal-symbol.png" /></button>
                     </div>
                 </div>
-                <input type="hidden" name="ans" value="{{$ans}}">
                 {{ Form::close() }}
                 <hr>
                 <div class="grid-x grid-margin-x">
-                    <div class="medium-3 cell">
-                        <a class="hollow button large expanded" href="{{ route('add',['ans' => $route]) }}">+</a>
-                    </div>
-                    <div class="medium-3 cell">
-                        <a class="hollow button button large expanded" href="{{ route('minus',['ans' => $route]) }}">-</a>
-                    </div>
-                    <div class="medium-3 cell">
-                        <a class="hollow button button large expanded" href="{{ route('multiply',['ans' => $route]) }}">x</a>
-                    </div>
-                    <div class="medium-3 cell">
-                        <a class="hollow button button large expanded" href="{{ route('divide',['ans' => $route]) }}">/</a>
+                    <div class="medium-12">
+                        <center><h3>{{ $answer }}</h3></center>
                     </div>
                 </div>
-               
+                <hr>
+                <div class="links">
+                    <a class="clear button secondary" href="{{ route('home') }}"> Back (กลับสู่หน้าหลัก)</a>
+                </div>
             </div>
         </div>
                 
