@@ -16,10 +16,6 @@ class AddControllerTest extends TestCase
         
         $response->assertStatus(200)
             ->assertSee('Add (บวก)')
-            ->assertSee('+')
-            ->assertSee('-')
-            ->assertSee('x')
-            ->assertSee('/')
             ;
     }
 
@@ -28,17 +24,16 @@ class AddControllerTest extends TestCase
         $response = $this->post('/add', ['num1' => 1, 'num2' => 2]);
 
         $response->assertStatus(200)
-            ->assertSee('name="num1" value="3" readonly')
-            # ->assertSee('3')
+            ->assertSee('3')
             ;
     }
 
     public function testAnswerShouldReceiveFormAnotherView() 
     {
-        $response = $this->post('/add', ['num1' => 5]);
+        $response = $this->post('/add', ['num1' => 5, 'num2' => 0]);
 
         $response->assertStatus(200)
-            ->assertSee('name="num1" value="5" readonly')
+            ->assertSee('5')
             ;
     }
 
@@ -62,22 +57,22 @@ class AddControllerTest extends TestCase
         $response = $this->post('/add', ['num1' => 3.2, 'num2' => 1.8]);
 
         $response->assertStatus(200)
-            ->assertSee(5)
+            ->assertSee('5')
         ;
         
         $response = $this->post('/add', ['num1' => 3, 'num2' => 1.0]);
         $response->assertStatus(200)
-            ->assertSee(4)
+            ->assertSee('4')
         ;
         
         $response = $this->post('/add', ['num1' => 3.0, 'num2' => 1]);
         $response->assertStatus(200)
-            ->assertSee(4)
+            ->assertSee('4')
         ;
         
         $response = $this->post('/add', ['num1' => 0.0, 'num2' => 0.0]);
         $response->assertStatus(200)
-            ->assertSee(0)
+            ->assertSee('0')
         ;
     }
 
@@ -85,12 +80,12 @@ class AddControllerTest extends TestCase
     {
         $response = $this->post('/add', ['num1' => 1, 'num2' => -1]);
         $response->assertStatus(200)
-                ->assertSee(0)
+                ->assertSee('0')
         ;
         
         $response = $this->post('/add', ['num1' => 1, 'num2' => -1]);
         $response->assertStatus(200)
-                ->assertSee(0)
+                ->assertSee('0')
         ;
     }
     

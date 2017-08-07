@@ -17,11 +17,14 @@ class InputController extends Controller{
     	$add = new Add();
 
         $answer = null;
-        $num1 = Input::has('num1') ? Input::get('num1') : NULL ;
-        $num2 = Input::has('num2') ? Input::get('num2') : NULL ;
-        	if($num1 !== NULL && $num2 !== NULL){
-        		$answer = $add->calculate($num1,$num2);
-        	}
+        if(Input::has('num1') && Input::has('num2')){
+            if(is_numeric(Input::get('num1')) && is_numeric(Input::get('num2'))){
+                $answer = $add->calculate(Input::get('num1'),Input::get('num2'));
+            }
+            else{
+                $answer = "Numbers are required";
+            }
+        }
 
         return view('add', array('answer' => $answer));
     }
@@ -31,11 +34,14 @@ class InputController extends Controller{
     	$minus = new Minus();
 
         $answer = null;
-        $num1 = Input::has('num1') ? Input::get('num1') : NULL ;
-        $num2 = Input::has('num2') ? Input::get('num2') : NULL ;
-        	if($num1 !== NULL && $num2 !== NULL){
-        		$answer = $minus->calculate($num1,$num2);
-        	}
+        if(Input::has('num1') && Input::has('num2')){
+            if(is_numeric(Input::get('num1')) && is_numeric(Input::get('num2'))){
+                $answer = $minus->calculate(Input::get('num1'),Input::get('num2'));
+            }
+            else{
+                $answer = "Numbers are required";
+            }
+        }
 
         return view('minus', array('answer' => $answer));
     }
@@ -45,11 +51,14 @@ class InputController extends Controller{
     	$multiply = new Multiply();
 
         $answer = null;
-        $num1 = Input::has('num1') ? Input::get('num1') : NULL ;
-        $num2 = Input::has('num2') ? Input::get('num2') : NULL ;
-        	if($num1 !== NULL && $num2 !== NULL){
-        		$answer = $multiply->calculate($num1,$num2);
-        	}
+        if(Input::has('num1') && Input::has('num2')){
+            if(is_numeric(Input::get('num1')) && is_numeric(Input::get('num2'))){
+                $answer = $multiply->calculate(Input::get('num1'),Input::get('num2'));
+            }
+            else{
+                $answer = "Numbers are required";
+            }
+        }
 
         return view('multiply', array('answer' => $answer));
     }
@@ -59,11 +68,17 @@ class InputController extends Controller{
     	$divide = new Divide();
 
         $answer = null;
-        $num1 = Input::has('num1') ? Input::get('num1') : NULL ;
-        $num2 = Input::has('num2') ? Input::get('num2') : NULL ;
-        	if($num1 !== NULL && $num2 !== NULL && $num2 != 0){
-        		$answer = $divide->calculate($num1,$num2);
-        	}
+        if(Input::has('num1') && Input::has('num2')){
+            if(is_numeric(Input::get('num1')) && is_numeric(Input::get('num2'))){
+                if(Input::get('num2') != 0)
+                    $answer = $divide->calculate(Input::get('num1'),Input::get('num2'));
+                else
+                    $answer = "Cannot divided by zero";
+            }
+            else{
+                $answer = "Numbers are required";
+            }
+        }
 
         return view('divide', array('answer' => $answer));
     }

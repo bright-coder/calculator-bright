@@ -16,12 +16,8 @@ class MinusControllerTest extends TestCase
         
         $response->assertStatus(200)
             ->assertSee('Minus (ลบ)')
-            ->assertSee('=')
-            ->assertSee('+')
-            ->assertSee('-')
-            ->assertSee('x')
-            ->assertSee('/')
             ;
+            
     }
 
     public function testMinusAnswerShouldDisplay()
@@ -29,17 +25,16 @@ class MinusControllerTest extends TestCase
         $response = $this->post('/minus', ['num1' => 1, 'num2' => 1]);
 
         $response->assertStatus(200)
-            ->assertSee('name="num1" value="2" readonly')
-            # ->assertSee('3')
+            ->assertSee('0')
             ;
     }
 
     public function testAnswerShouldReceiveFormAnotherView() 
     {
-        $response = $this->post('/minus', ['num1' => 0]);
+        $response = $this->post('/minus', ['num1' => 0, 'num2' => 0]);
 
         $response->assertStatus(200)
-            ->assertSee('name="num1" value="0" readonly')
+            ->assertSee('0')
             ;
     }
 
@@ -65,22 +60,22 @@ class MinusControllerTest extends TestCase
     {
         $response = $this->post('/minus', ['num1' => 3.2, 'num2' => 1.2]);
         $response->assertStatus(200)
-            ->assertSee(2)
+            ->assertSee('2')
         ;
         
         $response = $this->post('/minus', ['num1' => 3, 'num2' => 1.0]);
         $response->assertStatus(200)
-            ->assertSee(2)
+            ->assertSee('2')
         ;
         
         $response = $this->post('/minus', ['num1' => 3.0, 'num2' => 1]);
         $response->assertStatus(200)
-            ->assertSee(2)
+            ->assertSee('2')
         ;
         
         $response = $this->post('/minus', ['num1' => 0.0, 'num2' => 0.0]);
         $response->assertStatus(200)
-            ->assertSee(0)
+            ->assertSee('0')
         ;
     }
 
@@ -88,17 +83,17 @@ class MinusControllerTest extends TestCase
     {
         $response = $this->post('/minus', ['num1' => 1, 'num2' => -1]);
         $response->assertStatus(200)
-                ->assertSee(2)
+                ->assertSee('2')
         ;
         
         $response = $this->post('/minus', ['num1' => -1, 'num2' => -1]);
         $response->assertStatus(200)
-                ->assertSee(0)
+                ->assertSee('0')
         ;
         
         $response = $this->post('/minus', ['num1' => -1, 'num2' => 2]);
         $response->assertStatus(200)
-                ->assertSee(-3)
+                ->assertSee('-3')
         ;
     }
 }
